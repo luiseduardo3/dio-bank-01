@@ -1,14 +1,16 @@
-import { ChakraProvider, Input, Box, Center, Button } from "@chakra-ui/react";
+import { ChakraProvider, Box } from "@chakra-ui/react";
 import { Card } from "./components/Card";
-import { Header } from "./components/Header";
 
-import LogoDio from "./assets/img/imgdio.png";
+import { Layout } from "./components/Layout";
 
 function App() {
   return (
     <ChakraProvider>
-      <Header src={LogoDio} alt="Luis" />
-      <Card />
+      <Layout>
+        <Box>
+          <Card />
+        </Box>
+      </Layout>
     </ChakraProvider>
   );
 }
