@@ -16,7 +16,7 @@ interface IUserData {
 export const Conta = () => {
   const [userData, setUserData] = useState<null | IUserData>();
 
-  const context = useContext(AppContext);
+  const { isLoggedIn, user } = useContext(AppContext);
 
   const { id } = useParams();
   const navegate = useNavigate();
@@ -30,8 +30,7 @@ export const Conta = () => {
   }, []);
 
   const actualData = new Date();
-
-  if (userData && id !== userData.id) {
+  if (!isLoggedIn) {
     navegate("/");
   }
 
@@ -45,10 +44,16 @@ export const Conta = () => {
         ) : (
           <>
             <CardInfo
-              mainContent={`Bem Vindo ${context.user.name}`}
+              mainContent={`Bem Vindo ${user.name}`}
               content={`${actualData.getDate()}/${actualData.getMonth()}/${actualData.getFullYear()} 
              ${actualData.getHours()}:${actualData.getMinutes()}`}
             />
+
+            {isLoggedIn === true ? (
+              <h1>Usuario Logado </h1>
+            ) : (
+              <h1>Não logado</h1>
+            )}
 
             <CardInfo mainContent="Saldo" content={`R$ ${userData.balance}`} />
           </>

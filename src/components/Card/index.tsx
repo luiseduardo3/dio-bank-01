@@ -2,7 +2,7 @@ import { ChakraProvider, Box, Center, Input } from "@chakra-ui/react";
 
 import { EmailIcon, LockIcon } from "@chakra-ui/icons";
 
-import { login } from "../../services/login";
+import { Login } from "../../services/login";
 import { Botao } from "../Botao";
 import { useEffect, useState } from "react";
 
